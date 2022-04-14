@@ -1,8 +1,51 @@
 import 'dart:io';
+import 'commands.dart';
+import 'user.dart';
 
 
 typedef choices(int choice);
 
+withdraw(String bal){
+  Testing b = Testing(int.parse(bal));
+  b.withdraw();
+}
+
+deposit(String bal){
+  Testing b = Testing(int.parse(bal));
+  b.deposit();
+}
+settings(){
+  var settingChoice;
+  do{
+  stdout.writeln("""\n
+    -----Settings-----
+    1.) Change Username 
+    2.) Change Password 
+    3.) Show User Info
+    4.) Exit
+    -------------------
+    """);
+  stdout.write("Chosen Number: ");
+  settingChoice = stdin.readLineSync();
+  Settings setting = Settings();
+  if(settingChoice == "1"){
+    setting.changeUsername();
+    break;
+  }    
+  else if(settingChoice == "2"){
+    setting.changePass();
+    break;
+  }
+  else if(settingChoice == "3"){
+    setting.showUserInfo();
+    break;
+  }
+  else if(settingChoice == "4")
+    break;
+  else
+    continue;
+  }while(settingChoice != "1" || settingChoice != "2" || settingChoice != "3" || settingChoice != "4");
+}
 
 main(){
   var val = File('values.txt').readAsLinesSync(), choice;
