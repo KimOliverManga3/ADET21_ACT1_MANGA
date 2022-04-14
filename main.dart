@@ -88,13 +88,16 @@ main(){
     choices? a;
     if(choice == "1"){
       chosenType(val[3]);
+      a = withdraw(bal);
       break;
     }
     else if(choice == "2"){
       chosenType(val[3]);
+      a = deposit(bal);
       break;
     }
     else if(choice == "3"){
+      a = settings();
       break;
     }
     else
